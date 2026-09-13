@@ -1,74 +1,115 @@
-# 果冻键显 JellyKeys
+<p align="center">
+  <img src="assets/app_icon.png" alt="JellyKeys 软件图标 / app icon" width="104">
+</p>
 
-JellyKeys 是面向 Windows 直播和录屏的键盘按键可视化工具。真实键盘按下时，透明覆盖层上的键帽会下沉并回弹；键盘位置、缩放、配色和文字贴图都可以调整。项目使用 Godot 4.7.1 .NET 开发。
+<h1 align="center">果冻键显 JellyKeys</h1>
 
-| 机甲晨光 · 84 键 | 橙蓝实验室 · 87 键 |
+<p align="center">直播与录屏的透明键盘按键可视化工具<br>Transparent keyboard visualizer for streaming and recording</p>
+
+<p align="center"><a href="#zh-cn">简体中文</a> · <a href="#english">English</a></p>
+
+| 机甲晨光 / Mecha Dawn · 84 键 | 橙蓝实验室 / Portal Lab · 87 键 |
 | :---: | :---: |
-| ![机甲晨光主题](docs/images/mecha-dawn.png) | ![橙蓝实验室主题](docs/images/portal-lab.png) |
-| 霓虹竞技场 · 87 键 | 虹彩银翼 · 61 键 |
-| ![霓虹竞技场主题](docs/images/neon-arena.png) | ![虹彩银翼主题](docs/images/spectrum-silver.png) |
+| ![机甲晨光 / Mecha Dawn](docs/images/mecha-dawn.png) | ![橙蓝实验室 / Portal Lab](docs/images/portal-lab.png) |
+| 霓虹竞技场 / Neon Arena · 87 键 | 虹彩银翼 / Spectrum Silver · 61 键 |
+| ![霓虹竞技场 / Neon Arena](docs/images/neon-arena.png) | ![虹彩银翼 / Spectrum Silver](docs/images/spectrum-silver.png) |
 
-## 下载与运行
+<a id="zh-cn"></a>
 
-从项目的 Releases 下载 Windows x64 安装包或绿色版。绿色版解压后运行 `JellyKeys.exe`，并保持 `data_JellyKeyboardOverlay_windows_x86_64` 文件夹与 EXE 放在一起。绿色版无需安装，也不要求单独安装 .NET 运行时。
+## 简体中文
 
-首次启动默认锁定键盘位置：屏幕上只显示键盘，鼠标点击可以穿透覆盖层。鼠标移到键盘上方时，键盘会平滑淡化，避免挡住下方内容。
+JellyKeys 使用 Godot 4.7.1 .NET 开发。真实键盘按下时，透明覆盖层上的对应键帽会下沉、回弹。可以调整键盘位置、大小、配色和文字贴图，适合直播与录屏。
 
-## 如何解锁和调整键盘
+### 下载与运行
 
-1. 按 `Ctrl + Shift + F10` 唤醒 Bar 条；也可以右键系统托盘中的 JellyKeys 图标，选择“打开 Bar 条”。
-2. 在 Bar 条上点击**锁图标**，让它处于未选中状态，再按 **OK**。锁图标只是选择退出 Bar 条后的状态，按 OK 才会保存并生效。
-3. 解锁后拖动键盘底座调整位置；在底座或 Bar 条上滚动鼠标滚轮调整大小，范围为 25%–150%。
-4. 调整完成后再次唤醒 Bar 条，选中锁图标并按 **OK**，恢复鼠标穿透的锁定状态。
+从 Releases 下载 Windows x64 安装包或绿色版。绿色版解压后运行 <code>JellyKeys.exe</code>，并保持 <code>data_JellyKeyboardOverlay_windows_x86_64</code> 文件夹与 EXE 放在一起。无需单独安装 .NET 运行时。
 
-Bar 条还可以切换主题和打开设置。设置中可编辑键帽、底板与文字贴图，管理主题，以及选择实体键盘布局。实体布局可以跟随主题、自动识别或手动选择；自动识别不准确时手动指定即可。托盘菜单中的“自启动”由用户自行开启或关闭。
+首次启动默认锁定位置，只显示键盘，鼠标点击可以穿透覆盖层。鼠标移到键盘上方时，键盘会平滑淡化。
 
-## 主题与贴图
+### 解锁、调整和重新锁定
 
-主题导出为单个 `.jellytheme` 文件，内部包含 `theme.json` 和 `text.png`。导入时会检查文件结构、格式版本和贴图尺寸；单独导入自制文字贴图时也会检查尺寸。具体字段、尺寸和限制见 [主题包格式](THEME_PACKAGE_FORMAT.md)。
+1. 按 <code>Ctrl + Shift + F10</code> 唤醒 Bar 条，或右键托盘图标选择“打开 Bar 条”。
+2. 点击 Bar 条的锁图标，使它处于**未选中**状态，然后按 **OK**。锁图标选择退出后的状态；按 OK 才会保存并生效。
+3. 拖动键盘底座调整位置，在底座或 Bar 条上滚动滚轮调整大小，范围为 25%–150%。
+4. 调整完成后再次打开 Bar 条，**选中**锁图标并按 **OK**，恢复鼠标穿透。
 
-内置主题随程序提供；新建、导入或修改后保存的主题位于本机 `user://themes/user/`，当前状态位于 `user://state/`。更换主题不会覆盖用户单独选择的实体键盘布局。
+Bar 条可以切换主题、调整缩放和打开设置。设置面板支持编辑键帽与底板配色、管理主题、导入文字贴图，以及选择实体键盘布局。布局可跟随主题、自动识别或手动选择；自动识别不准确时可手动指定。托盘菜单可以切换“自启动”。
 
-## 从源码运行
+### 主题文件
 
-需要 Windows x64、Godot **4.7.1 .NET** 编辑器和 .NET **8 SDK**。使用 Godot 打开 `project.godot`，编译 C# 项目后运行主场景；也可以在项目目录执行：
+主题导出为单个 <code>.jellytheme</code> 文件，包含 <code>theme.json</code> 和 <code>text.png</code>。导入主题或单独导入自制文字贴图时，程序会检查格式与贴图尺寸。字段和限制见[主题包格式](THEME_PACKAGE_FORMAT.md)。
 
-```powershell
-dotnet restore .\JellyKeyboardOverlay.sln
-dotnet build .\JellyKeyboardOverlay.sln -c Release
-```
+内置主题随程序提供；新建、导入或修改后保存的主题位于本机 <code>user://themes/user/</code>，当前状态位于 <code>user://state/</code>。更换主题不会覆盖单独选择的实体键盘布局。
 
-Windows 导出预设位于 `export_presets.cfg`。安装与 Godot 4.7.1 对应的 .NET 导出模板后，可以在编辑器中选择 **Project → Export → Windows Desktop**。发行包中的 C# 程序集经过兼容 Godot 的混淆处理；仓库源码保持可读，方便审阅和修改。
+### 从源码运行与打包
 
-`assets/figma/` 中的 `.svg.import` 是 Godot 的图标导入设置，请与 SVG 一起保留。`builds/` 可放置发行文件，已被 Git 忽略，也不会参与主项目的 C# 编译。
+需要 Windows x64、Godot **4.7.1 .NET** 和 .NET **8 SDK**。用 Godot 打开 <code>project.godot</code>，编译 C# 后运行主场景；也可以在项目目录执行：
 
-## Windows 安装包
+~~~powershell
+dotnet restore ./JellyKeyboardOverlay.sln
+dotnet build ./JellyKeyboardOverlay.sln -c Release
+~~~
 
-`packaging/windows/JellyKeys.iss` 是 Inno Setup 6 安装脚本。准备完整的 Windows x64 绿色版目录后，用 `ISCC.exe /DPortableDir=<绿色版目录> /O<输出目录> packaging/windows/JellyKeys.iss` 编译。安装默认使用当前用户目录，不要求管理员权限；桌面快捷方式可选。卸载会移除安装文件，用户主题和配置会保留。
+Windows 导出预设位于 <code>export_presets.cfg</code>。安装与 Godot 4.7.1 对应的 .NET 导出模板后，在编辑器中选择 **Project → Export → Windows Desktop**。发行包的 C# 程序集经过兼容 Godot 的混淆处理，仓库源码保持可读。
 
-## 隐私
+安装脚本位于 <code>packaging/windows/JellyKeys.iss</code>，使用 Inno Setup 6 编译。Godot 资源的 <code>.uid</code> 和 <code>.import</code> 文件需要随源码保留；<code>builds/</code> 已被 Git 忽略。
 
-程序只读取按键的按下/松开事件以驱动动画，不记录按键序列，也不上传输入内容。配置和用户主题保存在 Godot 的本地用户数据目录。只有用户主动开启托盘“自启动”时，程序才会写入当前 Windows 用户的启动项。
+### 隐私
 
-## 参与贡献
+程序只读取按键的按下、松开事件以驱动动画，不记录按键序列，也不上传输入内容。配置和用户主题保存在本机。只有主动开启托盘“自启动”时，程序才会写入当前 Windows 用户的启动项。
 
-欢迎通过 Issue 反馈问题或提出建议。提交代码请先阅读 [贡献指南](CONTRIBUTING.md)：Fork 仓库、创建分支、提交 Pull Request，并说明修改目的和验证方式。界面变化请附截图，保持现有设计语言。
+### 贡献与许可
 
-## 开源许可
+欢迎提交 Issue。贡献代码时，请 Fork 仓库、创建分支、提交 Pull Request，并说明修改原因和验证方式；界面改动请附截图。完整流程见[贡献指南](CONTRIBUTING.md)。
 
-Copyright (C) 2026 米夏小雨。项目源码、原创图标和仓库中的主题预览图按 [GNU GPL 3.0（仅此版本）](LICENSE) 授权，SPDX 标识为 `GPL-3.0-only`。分发基于本项目的受许可作品或其二进制版本时，须按 GPLv3 的条件向接收者提供对应源码；仅供自己使用的修改无需公开。发布安装包或绿色版时，请同时提供同版本的对应源码包。第三方组件仍遵循各自许可证。
+Copyright (C) 2026 **米夏小雨**。项目源码、原创图标和主题预览图按 **GNU GPL 3.0（仅此版本）** 授权，完整英文条款见 [LICENSE](LICENSE)。分发基于本项目的受许可作品或二进制版本时，须按许可证向接收者提供对应源码；发布安装包或绿色版时，请同时提供同版本源码包。第三方组件遵循各自许可证。
 
-## 项目结构
+<a id="english"></a>
 
-| 路径 | 内容 |
-| --- | --- |
-| `assets/` | 原创图标、默认黑白键字贴图和界面矢量图 |
-| `docs/images/` | README 中使用的主题预览图 |
-| `scenes/` | 键盘覆盖层、Bar 条和设置面板场景 |
-| `scripts/input/` | 只读全局键盘输入 |
-| `scripts/layout/` | 键盘位置和键型定义 |
-| `scripts/overlay/` | 覆盖层窗口、托盘和自启动 |
-| `scripts/settings/` | 本地设置 |
-| `scripts/ui/` | 键帽渲染、主题编辑与导入导出 |
+## English
 
-这个公开源码包不包含编译产物、测试文件或用户数据。
+JellyKeys is a transparent keyboard overlay for Windows streaming and recording, built with Godot 4.7.1 .NET. Physical key presses animate the matching keycaps. You can move and scale the overlay, change colors, and customize the key-label texture.
+
+### Download and run
+
+Download the Windows x64 installer or portable archive from Releases. For the portable edition, extract the whole archive and run <code>JellyKeys.exe</code>. Keep the <code>data_JellyKeyboardOverlay_windows_x86_64</code> folder beside the EXE. No separate .NET runtime installation is needed.
+
+The keyboard starts locked: only the overlay is visible, and mouse clicks pass through it. The keyboard fades smoothly when the pointer moves over it.
+
+### Unlock, adjust, and lock again
+
+1. Press <code>Ctrl + Shift + F10</code> to show the Bar, or right-click the tray icon and choose “打开 Bar 条” (Open Bar).
+2. Click the lock icon so it is **not selected**, then press **OK**. The icon selects the state to apply when the Bar closes; OK saves and applies it.
+3. Drag the keyboard deck to move it. Scroll over the deck or Bar to scale it between 25% and 150%.
+4. Reopen the Bar, **select** the lock icon, and press **OK** to restore mouse click-through.
+
+The Bar also switches themes, changes scale, and opens Settings. Settings can edit keycap and deck colors, manage themes, import a key-label texture, and choose the physical keyboard layout. Layout detection can follow the theme, run automatically, or be set manually. The tray menu also controls startup with Windows (“自启动”).
+
+### Themes
+
+A theme exports as one <code>.jellytheme</code> file containing <code>theme.json</code> and <code>text.png</code>. Imports validate the package format and image dimensions, including when you import an edited label texture on its own. See the [theme package specification](THEME_PACKAGE_FORMAT.md) for fields and limits.
+
+Built-in themes ship with the app. New, imported, and edited themes are stored locally under <code>user://themes/user/</code>; current state is stored under <code>user://state/</code>. Switching themes does not override a separately selected physical keyboard layout.
+
+### Build from source
+
+You need Windows x64, **Godot 4.7.1 .NET**, and the **.NET 8 SDK**. Open <code>project.godot</code> in Godot, build the C# project, and run the main scene. You can also build from the project directory:
+
+~~~powershell
+dotnet restore ./JellyKeyboardOverlay.sln
+dotnet build ./JellyKeyboardOverlay.sln -c Release
+~~~
+
+The Windows export preset is in <code>export_presets.cfg</code>. Install the .NET export templates matching Godot 4.7.1, then use **Project → Export → Windows Desktop**. Release C# assemblies are obfuscated in a way compatible with Godot; repository source stays readable.
+
+The Inno Setup 6 installer script is <code>packaging/windows/JellyKeys.iss</code>. Keep Godot <code>.uid</code> and <code>.import</code> files with the source. Git ignores <code>builds/</code>.
+
+### Privacy
+
+The app reads key-down and key-up events only to animate the overlay. It does not record key sequences or upload input. Settings and user themes stay on the local machine. A per-user Windows startup entry is created only if you enable “自启动” in the tray menu.
+
+### Contributing and license
+
+Issues and Pull Requests are welcome. To contribute, fork the repository, create a focused branch, and open a Pull Request explaining the change and how you tested it. Include before-and-after screenshots for UI changes. See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
+
+Copyright (C) 2026 **米夏小雨**. Source code, original icons, and theme preview images are licensed under **GNU GPL 3.0 only**; the full English terms are in [LICENSE](LICENSE). When distributing a covered derivative or binary, provide the corresponding source to recipients under the license. Publish the matching source archive alongside an installer or portable release. Third-party components retain their own licenses.
