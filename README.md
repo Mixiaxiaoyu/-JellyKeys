@@ -4,7 +4,7 @@
 
 <h1 align="center">果冻键显 JellyKeys</h1>
 
-<p align="center">直播与录屏的透明键盘按键可视化工具<br>Transparent keyboard visualizer for streaming and recording</p>
+<p align="center">让每次敲击都 Q 弹可见的透明键盘<br>A transparent keyboard overlay that bounces with every keystroke.</p>
 
 <p align="center"><a href="#zh-cn">简体中文</a> · <a href="#english">English</a></p>
 
