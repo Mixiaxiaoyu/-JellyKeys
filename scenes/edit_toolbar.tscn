@@ -1,0 +1,195 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource path="res://scripts/ui/EditToolbarView.cs" type="Script" id="1_script"]
+[ext_resource path="res://assets/figma/bar_lock.svg" type="Texture2D" id="2_grip"]
+[ext_resource path="res://assets/figma/bar_plus.svg" type="Texture2D" id="3_minus"]
+[ext_resource path="res://assets/figma/bar_minus.svg" type="Texture2D" id="4_plus"]
+[ext_resource path="res://assets/figma/bar_settings.svg" type="Texture2D" id="5_ok"]
+[ext_resource path="res://assets/figma/bar_background.svg" type="Texture2D" id="6_lock"]
+[ext_resource path="res://assets/figma/bar_drag.svg" type="Texture2D" id="7_settings"]
+[ext_resource path="res://assets/figma/bar_collapse.svg" type="Texture2D" id="8_collapse"]
+
+[node name="EditToolbar" type="Control"]
+custom_minimum_size = Vector2(940, 80)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 940.0
+offset_bottom = 80.0
+mouse_filter = 1
+script = ExtResource("1_script")
+
+[node name="Rail" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 940.0
+offset_bottom = 80.0
+mouse_filter = 1
+
+[node name="ThemeScrollArea" type="Control" parent="."]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 10.0
+offset_right = 414.0
+offset_bottom = 70.0
+mouse_filter = 1
+
+[node name="DragButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 22.0
+offset_right = 58.0
+offset_bottom = 60.0
+mouse_default_cursor_shape = 13
+focus_mode = 0
+icon = ExtResource("2_grip")
+expand_icon = true
+icon_max_width = 38
+tooltip_text = "拖动"
+
+[node name="Theme0" type="Button" parent="."]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 18.0
+offset_right = 130.0
+offset_bottom = 66.0
+focus_mode = 0
+tooltip_text = "主题 1"
+
+[node name="Theme1" type="Button" parent="."]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 18.0
+offset_right = 198.0
+offset_bottom = 66.0
+focus_mode = 0
+tooltip_text = "主题 2"
+
+[node name="Theme2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 218.0
+offset_top = 18.0
+offset_right = 266.0
+offset_bottom = 66.0
+focus_mode = 0
+tooltip_text = "主题 3"
+
+[node name="Theme3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 286.0
+offset_top = 18.0
+offset_right = 334.0
+offset_bottom = 66.0
+focus_mode = 0
+tooltip_text = "主题 4"
+
+[node name="Theme4" type="Button" parent="."]
+layout_mode = 0
+offset_left = 354.0
+offset_top = 18.0
+offset_right = 402.0
+offset_bottom = 66.0
+focus_mode = 0
+tooltip_text = "主题 5"
+
+[node name="ScaleTray" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 16.0
+offset_right = 628.0
+offset_bottom = 64.0
+mouse_filter = 1
+
+[node name="SmallerButton" type="Button" parent="ScaleTray"]
+layout_mode = 0
+offset_right = 54.0
+offset_bottom = 48.0
+focus_mode = 0
+tooltip_text = "缩小"
+
+[node name="Icon" type="TextureRect" parent="ScaleTray/SmallerButton"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 21.0
+offset_right = 33.0
+offset_bottom = 27.0
+mouse_filter = 2
+texture = ExtResource("3_minus")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ScaleLabel" type="Label" parent="ScaleTray"]
+layout_mode = 0
+offset_left = 54.0
+offset_right = 142.0
+offset_bottom = 48.0
+mouse_filter = 2
+text = "100%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LargerButton" type="Button" parent="ScaleTray"]
+layout_mode = 0
+offset_left = 142.0
+offset_right = 196.0
+offset_bottom = 48.0
+focus_mode = 0
+tooltip_text = "放大"
+
+[node name="Icon" type="TextureRect" parent="ScaleTray/LargerButton"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 18.0
+offset_right = 33.0
+offset_bottom = 30.0
+mouse_filter = 2
+texture = ExtResource("4_plus")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ConfirmButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 658.0
+offset_top = 16.0
+offset_right = 706.0
+offset_bottom = 64.0
+focus_mode = 0
+icon = ExtResource("5_ok")
+expand_icon = true
+icon_max_width = 48
+tooltip_text = "确定并保存"
+
+[node name="LockButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 726.0
+offset_top = 16.0
+offset_right = 774.0
+offset_bottom = 64.0
+focus_mode = 0
+toggle_mode = true
+icon = ExtResource("6_lock")
+expand_icon = true
+icon_max_width = 48
+tooltip_text = "退出设置后锁定键盘位置"
+
+[node name="SettingsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 794.0
+offset_top = 16.0
+offset_right = 842.0
+offset_bottom = 64.0
+focus_mode = 0
+icon = ExtResource("7_settings")
+expand_icon = true
+icon_max_width = 48
+tooltip_text = "设置"
+
+[node name="CollapseButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 862.0
+offset_top = 16.0
+offset_right = 910.0
+offset_bottom = 64.0
+focus_mode = 0
+icon = ExtResource("8_collapse")
+expand_icon = true
+icon_max_width = 48
+tooltip_text = "收起"

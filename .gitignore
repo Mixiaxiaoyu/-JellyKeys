@@ -1,0 +1,6 @@
+.godot/
+.nuget/
+bin/
+obj/
+builds/
+*.log

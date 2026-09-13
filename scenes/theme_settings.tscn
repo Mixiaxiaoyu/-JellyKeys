@@ -1,0 +1,525 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource path="res://scripts/ui/ThemeSettingsView.cs" type="Script" id="1_script"]
+[ext_resource path="res://assets/figma/settings_close.svg" type="Texture2D" id="2_close"]
+[ext_resource path="res://assets/figma/settings_palette.svg" type="Texture2D" id="3_palette"]
+[ext_resource path="res://assets/figma/settings_knob.svg" type="Texture2D" id="4_layers"]
+[ext_resource path="res://assets/figma/settings_layers.svg" type="Texture2D" id="5_knob"]
+[ext_resource path="res://scripts/ui/KeyboardThumbnailView.cs" type="Script" id="6_keyboard_thumbnail"]
+[ext_resource path="res://assets/figma/settings_layout.svg" type="Texture2D" id="7_layout"]
+
+[node name="ThemeSettings" type="Control"]
+custom_minimum_size = Vector2(940, 824)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 940.0
+offset_bottom = 824.0
+mouse_filter = 0
+script = ExtResource("1_script")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 940.0
+offset_bottom = 824.0
+mouse_filter = 0
+
+[node name="CloseButton" type="Button" parent="."]
+z_index = 10
+layout_mode = 0
+offset_left = 862.0
+offset_top = 22.0
+offset_right = 910.0
+offset_bottom = 70.0
+focus_mode = 0
+icon = ExtResource("2_close")
+expand_icon = true
+icon_max_width = 48
+tooltip_text = "关闭"
+
+[node name="LayoutTab" type="Button" parent="."]
+z_index = 10
+layout_mode = 0
+offset_left = 26.0
+offset_top = 104.0
+offset_right = 216.0
+offset_bottom = 164.0
+focus_mode = 0
+
+[node name="Icon" type="TextureRect" parent="LayoutTab"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 17.0
+offset_right = 40.0
+offset_bottom = 43.0
+mouse_filter = 2
+texture = ExtResource("7_layout")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="LayoutTab"]
+layout_mode = 0
+offset_left = 46.0
+offset_right = 174.0
+offset_bottom = 60.0
+mouse_filter = 2
+text = "键盘布局"
+vertical_alignment = 1
+
+[node name="DesignTab" type="Button" parent="."]
+z_index = 10
+layout_mode = 0
+offset_left = 26.0
+offset_top = 184.0
+offset_right = 216.0
+offset_bottom = 244.0
+focus_mode = 0
+
+[node name="Icon" type="TextureRect" parent="DesignTab"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 17.0
+offset_right = 40.0
+offset_bottom = 43.0
+mouse_filter = 2
+texture = ExtResource("3_palette")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="DesignTab"]
+layout_mode = 0
+offset_left = 46.0
+offset_right = 174.0
+offset_bottom = 60.0
+mouse_filter = 2
+text = "设计键盘"
+vertical_alignment = 1
+
+[node name="ThemesTab" type="Button" parent="."]
+z_index = 10
+layout_mode = 0
+offset_left = 26.0
+offset_top = 264.0
+offset_right = 216.0
+offset_bottom = 324.0
+focus_mode = 0
+
+[node name="Icon" type="TextureRect" parent="ThemesTab"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 17.0
+offset_right = 40.0
+offset_bottom = 43.0
+mouse_filter = 2
+texture = ExtResource("4_layers")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ThemesTab"]
+layout_mode = 0
+offset_left = 46.0
+offset_right = 174.0
+offset_bottom = 60.0
+mouse_filter = 2
+text = "主题方案"
+vertical_alignment = 1
+
+[node name="AboutButton" type="Button" parent="."]
+z_index = 10
+layout_mode = 0
+offset_left = 26.0
+offset_top = 758.0
+offset_right = 186.0
+offset_bottom = 798.0
+focus_mode = 0
+flat = true
+mouse_default_cursor_shape = 2
+tooltip_text = "查看关于果冻键显"
+text = "关于  1.0.0"
+alignment = 0
+
+[node name="LayoutContent" type="Control" parent="."]
+layout_mode = 0
+offset_right = 940.0
+offset_bottom = 824.0
+mouse_filter = 1
+
+[node name="DeviceLayoutTitle" type="Label" parent="LayoutContent"]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 108.0
+offset_right = 910.0
+offset_bottom = 154.0
+mouse_filter = 2
+text = "键盘布局"
+
+[node name="DeviceLayoutSubtitle" type="Label" parent="LayoutContent"]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 158.0
+offset_right = 910.0
+offset_bottom = 188.0
+mouse_filter = 2
+text = "选择桌面显示的键数"
+
+[node name="DeviceLayoutPreviewPanel" type="Panel" parent="LayoutContent"]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 210.0
+offset_right = 910.0
+offset_bottom = 482.0
+mouse_filter = 2
+
+[node name="DeviceLayoutPreview" type="Control" parent="LayoutContent/DeviceLayoutPreviewPanel"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 644.0
+offset_bottom = 254.0
+mouse_filter = 2
+script = ExtResource("6_keyboard_thumbnail")
+
+[node name="DeviceLayoutFieldLabel" type="Label" parent="LayoutContent"]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 514.0
+offset_right = 910.0
+offset_bottom = 550.0
+mouse_filter = 2
+text = "桌面显示"
+
+[node name="DeviceLayoutSelect" type="OptionButton" parent="LayoutContent"]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 560.0
+offset_right = 600.0
+offset_bottom = 614.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+
+[node name="DeviceLayoutRescan" type="Button" parent="LayoutContent"]
+layout_mode = 0
+offset_left = 772.0
+offset_top = 570.0
+offset_right = 910.0
+offset_bottom = 608.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+tooltip_text = "重新读取 Windows 键盘信息"
+text = "重新检测"
+
+[node name="DeviceLayoutInfo" type="HBoxContainer" parent="LayoutContent"]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 636.0
+offset_right = 910.0
+offset_bottom = 662.0
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="DeviceLayoutStatus" type="Label" parent="LayoutContent/DeviceLayoutInfo"]
+layout_mode = 2
+mouse_filter = 2
+text = "正在检测键数…"
+
+[node name="DeviceLayoutHint" type="Label" parent="LayoutContent/DeviceLayoutInfo"]
+layout_mode = 2
+mouse_filter = 2
+text = "换主题时自动切换"
+
+[node name="DesignContent" type="Control" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 940.0
+offset_bottom = 824.0
+mouse_filter = 1
+
+[node name="PreviewPanel" type="Panel" parent="DesignContent"]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 104.0
+offset_right = 910.0
+offset_bottom = 404.0
+mouse_filter = 0
+
+[node name="PreviewKeys" type="Control" parent="DesignContent/PreviewPanel"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 644.0
+offset_bottom = 224.0
+mouse_filter = 1
+
+[node name="ThemeNameDisplay" type="Label" parent="DesignContent/PreviewPanel"]
+z_index = 10
+layout_mode = 0
+offset_left = 18.0
+offset_top = 232.0
+offset_right = 644.0
+offset_bottom = 282.0
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+tooltip_text = "双击修改方案名称"
+text = "方案 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ThemeNameEdit" type="LineEdit" parent="DesignContent/PreviewPanel"]
+visible = false
+z_index = 11
+layout_mode = 0
+offset_left = 170.0
+offset_top = 232.0
+offset_right = 492.0
+offset_bottom = 282.0
+focus_mode = 1
+mouse_default_cursor_shape = 2
+placeholder_text = "输入方案名称"
+alignment = 1
+max_length = 24
+select_all_on_focus = true
+
+[node name="SelectionHint" type="Label" parent="DesignContent/PreviewPanel"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 278.0
+offset_right = 644.0
+offset_bottom = 298.0
+mouse_filter = 2
+text = "Ctrl / Shift 多选  ·  右键复制 / 粘贴颜色"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Type61" type="Button" parent="DesignContent"]
+layout_mode = 0
+offset_left = 246.0
+offset_top = 408.0
+offset_right = 294.0
+offset_bottom = 452.0
+focus_mode = 0
+flat = true
+text = "61"
+
+[node name="Type68" type="Button" parent="DesignContent"]
+layout_mode = 0
+offset_left = 330.0
+offset_top = 408.0
+offset_right = 378.0
+offset_bottom = 452.0
+focus_mode = 0
+flat = true
+text = "68"
+
+[node name="Type87" type="Button" parent="DesignContent"]
+layout_mode = 0
+offset_left = 414.0
+offset_top = 408.0
+offset_right = 462.0
+offset_bottom = 452.0
+focus_mode = 0
+flat = true
+text = "87"
+
+[node name="Type84" type="Button" parent="DesignContent"]
+layout_mode = 0
+offset_left = 498.0
+offset_top = 408.0
+offset_right = 546.0
+offset_bottom = 452.0
+focus_mode = 0
+flat = true
+text = "84"
+
+[node name="Type98" type="Button" parent="DesignContent"]
+layout_mode = 0
+offset_left = 582.0
+offset_top = 408.0
+offset_right = 630.0
+offset_bottom = 452.0
+focus_mode = 0
+flat = true
+text = "98"
+
+[node name="Type100" type="Button" parent="DesignContent"]
+layout_mode = 0
+offset_left = 666.0
+offset_top = 408.0
+offset_right = 728.0
+offset_bottom = 452.0
+focus_mode = 0
+flat = true
+text = "100"
+
+[node name="Type104" type="Button" parent="DesignContent"]
+layout_mode = 0
+offset_left = 764.0
+offset_top = 408.0
+offset_right = 826.0
+offset_bottom = 452.0
+focus_mode = 0
+flat = true
+text = "104"
+
+[node name="Type108" type="Button" parent="DesignContent"]
+layout_mode = 0
+offset_left = 862.0
+offset_top = 408.0
+offset_right = 924.0
+offset_bottom = 452.0
+focus_mode = 0
+flat = true
+text = "108"
+
+[node name="HueLabel" type="Label" parent="DesignContent"]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 464.0
+offset_right = 390.0
+offset_bottom = 500.0
+text = "色相"
+
+[node name="HueSlider" type="HSlider" parent="DesignContent"]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 500.0
+offset_right = 910.0
+offset_bottom = 532.0
+mouse_default_cursor_shape = 2
+max_value = 360.0
+step = 1.0
+
+[node name="SaturationLabel" type="Label" parent="DesignContent"]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 538.0
+offset_right = 390.0
+offset_bottom = 574.0
+text = "饱和度"
+
+[node name="SaturationSlider" type="HSlider" parent="DesignContent"]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 574.0
+offset_right = 910.0
+offset_bottom = 606.0
+mouse_default_cursor_shape = 2
+max_value = 100.0
+step = 1.0
+
+[node name="ValueLabel" type="Label" parent="DesignContent"]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 612.0
+offset_right = 390.0
+offset_bottom = 648.0
+text = "明度"
+
+[node name="ValueSlider" type="HSlider" parent="DesignContent"]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 648.0
+offset_right = 910.0
+offset_bottom = 680.0
+mouse_default_cursor_shape = 2
+max_value = 100.0
+step = 1.0
+
+[node name="ExportSpecificationButton" type="Button" parent="DesignContent"]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 726.0
+offset_right = 386.0
+offset_bottom = 786.0
+focus_mode = 0
+text = "导出规范"
+
+[node name="ImportDesignButton" type="Button" parent="DesignContent"]
+layout_mode = 0
+offset_left = 422.0
+offset_top = 726.0
+offset_right = 560.0
+offset_bottom = 786.0
+focus_mode = 0
+text = "导入设计"
+
+[node name="NewThemeButton" type="Button" parent="DesignContent"]
+layout_mode = 0
+offset_left = 596.0
+offset_top = 726.0
+offset_right = 736.0
+offset_bottom = 786.0
+focus_mode = 0
+text = "新建方案"
+
+[node name="SaveThemeButton" type="Button" parent="DesignContent"]
+layout_mode = 0
+offset_left = 772.0
+offset_top = 726.0
+offset_right = 910.0
+offset_bottom = 786.0
+focus_mode = 0
+text = "保存方案"
+
+[node name="ThemeContent" type="Control" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 940.0
+offset_bottom = 824.0
+mouse_filter = 1
+
+[node name="ThemeScroll" type="ScrollContainer" parent="ThemeContent"]
+layout_mode = 0
+offset_left = 270.0
+offset_top = 104.0
+offset_right = 910.0
+offset_bottom = 690.0
+horizontal_scroll_mode = 0
+
+[node name="ThemeGrid" type="GridContainer" parent="ThemeContent/ThemeScroll"]
+custom_minimum_size = Vector2(604, 0)
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 3
+
+[node name="ImportThemeButton" type="Button" parent="ThemeContent"]
+layout_mode = 0
+offset_left = 422.0
+offset_top = 726.0
+offset_right = 560.0
+offset_bottom = 786.0
+focus_mode = 0
+text = "导入方案"
+
+[node name="ExportThemeButton" type="Button" parent="ThemeContent"]
+layout_mode = 0
+offset_left = 596.0
+offset_top = 726.0
+offset_right = 736.0
+offset_bottom = 786.0
+focus_mode = 0
+text = "导出方案"
+
+[node name="ApplyThemeButton" type="Button" parent="ThemeContent"]
+layout_mode = 0
+offset_left = 772.0
+offset_top = 726.0
+offset_right = 910.0
+offset_bottom = 786.0
+focus_mode = 0
+text = "应用方案"
+
+[node name="ExportSpecificationDialog" type="FileDialog" parent="."]
+visible = false
+title = "导出文字贴图规范"
+
+[node name="ImportDesignDialog" type="FileDialog" parent="."]
+visible = false
+title = "导入文字贴图设计"
+
+[node name="ImportThemeDialog" type="FileDialog" parent="."]
+visible = false
+title = "导入主题方案"
+
+[node name="ExportThemeDialog" type="FileDialog" parent="."]
+visible = false
+title = "导出主题方案"

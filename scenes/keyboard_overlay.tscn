@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://ct3nhh42mev4g"]
+
+[ext_resource type="Script" uid="uid://dik7p403e4ef5" path="res://scripts/overlay/KeyboardOverlay.cs" id="1_overlay"]
+[ext_resource type="PackedScene" path="res://scenes/edit_toolbar.tscn" id="2_toolbar"]
+[ext_resource type="PackedScene" path="res://scenes/theme_settings.tscn" id="3_settings"]
+
+[node name="KeyboardOverlay" type="Control" unique_id=1326859909]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_overlay")
+
+[node name="KeyboardDeckDepth" type="Panel" parent="." unique_id=1150598577]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 104.0
+offset_right = 1204.0
+offset_bottom = 470.0
+mouse_filter = 2
+
+[node name="KeyboardDeck" type="Panel" parent="." unique_id=1368960978]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 88.0
+offset_right = 1204.0
+offset_bottom = 454.0
+
+[node name="Keys" type="Control" parent="KeyboardDeck" unique_id=50448770]
+anchors_preset = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 1176.0
+offset_bottom = 352.0
+mouse_filter = 2
+
+[node name="EditToolbar" parent="." unique_id=381991164 instance=ExtResource("2_toolbar")]
+layout_mode = 0
+offset_left = 139.0
+offset_top = 4.0
+offset_right = 1079.0
+offset_bottom = 84.0
+
+[node name="ThemeSettings" parent="." unique_id=1977756611 instance=ExtResource("3_settings")]
+visible = false
+layout_mode = 0

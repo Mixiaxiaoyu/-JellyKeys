@@ -1,0 +1,13 @@
+<Project Sdk="Godot.NET.Sdk/4.7.1">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>JellyKeyboardOverlay</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Release snapshots live below the project folder but are separate projects. -->
+    <Compile Remove="builds/**/*.cs" />
+  </ItemGroup>
+</Project>
